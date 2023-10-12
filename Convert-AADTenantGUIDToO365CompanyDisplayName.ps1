@@ -5,7 +5,7 @@
 
 .GUID b9c0f941-3d6c-4e1f-8484-fc5d9a11aeee
 
-.AUTHOR MichaelBendel-Paulso
+.AUTHOR tehmichael
 
 .COMPANYNAME
 
@@ -37,7 +37,7 @@
  Convert Azure AD GUID to Office365 company display name
 
 .DESCRIPTION 
- Attempts to find the company display name from the sign in page for a specific Azure AD GUID.
+ Outputs company display name found within the sign in page from a specific Azure AD GUID.
 
 #> 
 param (
