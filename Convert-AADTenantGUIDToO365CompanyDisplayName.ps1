@@ -1,13 +1,19 @@
 param (
-    [Parameter(Mandatory = $true, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true)]
+    [Parameter(Mandatory, ValueFromPipeline, ValueFromPipelineByPropertyName)]
+    [ValidateLength(36, 36)]
     [string]$tenantId
 )
 
 # TRY TO CONVERT TENANT ID TO COMPANY NAME
 
 # Lookup tenant region scope
-$webResponse = Invoke-WebRequest -Uri "https://login.microsoftonline.com/$tenantId/v2.0/.well-known/openid-configuration"
-$webResponseHash = $webResponse.Content | ConvertFrom-Json -AsHashtable
+try {
+    $webResponse = Invoke-WebRequest -Uri "https://login.microsoftonline.com/$tenantId/v2.0/.well-known/openid-configuration"
+    $webResponseHash = $webResponse.Content | ConvertFrom-Json -AsHashtable
+} catch {
+    $_
+    Exit 1
+}
 
 # Convert second web lookup to correct tld
 # TODO: Support China TLD
