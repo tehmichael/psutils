@@ -1,3 +1,45 @@
+
+<#PSScriptInfo
+
+.VERSION 1.0
+
+.GUID b9c0f941-3d6c-4e1f-8484-fc5d9a11aeee
+
+.AUTHOR MichaelBendel-Paulso
+
+.COMPANYNAME
+
+.COPYRIGHT
+
+.TAGS
+
+.LICENSEURI
+
+.PROJECTURI https://github.com/tehmichael/psutils
+
+.ICONURI
+
+.EXTERNALMODULEDEPENDENCIES 
+
+.REQUIREDSCRIPTS
+
+.EXTERNALSCRIPTDEPENDENCIES
+
+.RELEASENOTES
+
+
+.PRIVATEDATA
+
+#>
+
+<# 
+.SYNOPSIS
+ Convert Azure AD GUID to Office365 company display name
+
+.DESCRIPTION 
+ Attempts to find the company display name from the sign in page for a specific Azure AD GUID.
+
+#> 
 param (
     [Parameter(Mandatory, ValueFromPipeline, ValueFromPipelineByPropertyName)]
     [ValidateLength(36, 36)]
